@@ -26,7 +26,7 @@ const Login = () => {
         <Button variant="success">Log in</Button>
         </Link>
 
-      <Link to ="/SignUp">
+      <Link to ="/signup">
         <Button variant="success">Sign Up</Button>
       </Link>
 
