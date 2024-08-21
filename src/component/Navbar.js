@@ -10,6 +10,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+//라우터 
+import { Link } from 'react-router-dom';
+
+
 const Navbar = () => {
     const menuList = [
         '여성',
@@ -26,17 +30,23 @@ const Navbar = () => {
     <div className='container'>
 
         {/* login */}
-        <div className='login-button'>
-            <div>
-            <FontAwesomeIcon icon={faUser} />
-            </div>
+        <div className='login-icon'>
+            <Link to = "/Login">
+                <div>
+                <FontAwesomeIcon icon={faUser} />
+                </div>
+            </Link>
             <div>login</div>
         </div>
         
 
         {/* logo */}
         <div className='nav-section'>
-            <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
+
+            <Link to="/"> {/* 로고에 링크 추가 */}
+                <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
+            </Link>
+
         </div>
 
 
@@ -51,9 +61,10 @@ const Navbar = () => {
            
             
             {/* <FontAwesomeIcon icon={faSearch} /> */}
+            {/* search bar */}
             <InputGroup>
                 <Button variant="outline-secondary" id="button-addon1"><FontAwesomeIcon icon={faSearch} /></Button>
-                <Form.Control/>
+                <Form.Control className='input-box' placeholder="search"/>
             </InputGroup>
 
             {/* <input type="text" /> */}

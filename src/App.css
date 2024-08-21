@@ -1,11 +1,22 @@
-.login-button {
+body{
+  background-color: beige;
+}
+.cen {
+  display: flex;
+  justify-content: center;
+}
+
+
+.login-icon {
   display: flex;
   justify-content: flex-end;
   margin: 20px;
 }
 
-.login-button div {
-  margin-right: 10px;
+
+
+.login-icon div {
+  margin-left: 20px;
 }
 
 .nav-section {
@@ -22,6 +33,9 @@
   width: 100%;
   position: relative;
   flex-wrap: wrap; 
+  margin: 30px;
+  border-bottom:1px solid #ddd ;
+  padding-bottom: 20px;
 }  
 
 
@@ -47,6 +61,10 @@
 } 
 
 
+.input-box {
+  border-width: 0px 0px 1px;
+}
+
 .product-card-container {
   display: flex;
   flex-direction: column;
@@ -56,6 +74,12 @@
   border-radius: 5px;
   text-align: center;
   margin-bottom: 20px;
+  transition: transform 0.3s ease,  border-color 0.5s ease; /* 카드가 커질 때와 테두리 색이 변할 때 애니메이션 추가 */
+}
+
+.product-card-container:hover {
+  transform: scale(1.10); 
+  border-color: #ff69b4; /* 마우스를 올렸을 때 테두리 색상이 핑크빛(#ff69b4)으로 변경 *//* 마우스를 올렸을 때 카드가 1.05배 커지도록 설정 */
 }
 
 .product-card-container img {
@@ -73,4 +97,21 @@
   width: 100%;
   height: 200px; 
   object-fit: cover; /* 이미지가 잘리지 않고 꽉 차도록 설정 */
+}
+
+
+.login-form {
+  margin-top: 25px;
+  
+}
+
+.login-text {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
 }

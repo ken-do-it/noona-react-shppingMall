@@ -8,6 +8,7 @@ import Navbar from './component/Navbar';
 import { Routes, Route} from "react-router-dom"
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
+import SignUp from './page/SignUp';
 import ProductDetail from './page/ProductDetail';
 
 
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element = {<ProductAll/>} />
         <Route path="/login" element = {<Login />} />
+        <Route path="/SignUp" element = {<SignUp />} />
         <Route path="/product/:id" element = {<ProductDetail />} />
       </Routes>
     </div>
