@@ -30,6 +30,7 @@ import ProductDetail from './page/ProductDetail';
 function App() {
   return (
     <div className='container'>
+      <h1 className='cen'>This is personal practice page, not real page!!</h1>
       <Navbar />
       <Routes>
         <Route path="/" element = {<ProductAll/>} />

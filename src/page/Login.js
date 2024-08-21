@@ -8,6 +8,7 @@ const Login = () => {
     <div className='container'>
       
       <h1 className='cen'>상품 상세페이지를 보려면 로그인하세요.</h1>
+      <h1 className='cen'>This is personal project page not real page!! </h1>
 
       <Form className='login-form'>
       <Form.Group className="mb-3" controlId="formGroupEmail">
