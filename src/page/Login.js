@@ -12,11 +12,11 @@ const Login = () => {
 
       <Form className='login-form'>
       <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Label className='login-text'>Email address</Form.Label>
+        <Form.Label className='login-text'>이메일 주소 </Form.Label>
         <Form.Control className='input-box' type="email" placeholder="Enter email" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
-        <Form.Label className='login-text'>Password</Form.Label>
+        <Form.Label className='login-text'>패스워드</Form.Label>
         <Form.Control className='input-box' type="password" placeholder="Password" />
       </Form.Group>
 
