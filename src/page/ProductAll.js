@@ -9,7 +9,7 @@ const ProductAll = () => {
 
   const getProduct = async () => {
 
-    let url = 'http://localhost:5000/products';
+    let url = 'http://localhost:5000/products/';
     let response = await fetch(url);
     let data = await response.json();
     setProductList (data);
