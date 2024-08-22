@@ -9,7 +9,9 @@ import { Routes, Route} from "react-router-dom"
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
-import ProductDetail from './page/ProductDetail';
+// import ProductDetail from './page/ProductDetail';
+import { useEffect, useState } from 'react';
+import PrivateRoute from './route/PrivateRoute';
 
 
 
@@ -28,15 +30,24 @@ import ProductDetail from './page/ProductDetail';
 
 
 function App() {
+
+  const [authenticate, setAuthenticate] =useState(false) // true =로그인 , false = 로그아웃
+
+  useEffect(()=>{
+    console.log("AAA",authenticate)
+  },[authenticate]);
+
+
+
   return (
     <div className='container'>
-      <h1 className='cen'>This is personal practice page, not real page!!</h1>
+      
       <Navbar />
       <Routes>
         <Route path="/" element = {<ProductAll/>} />
-        <Route path="/login" element = {<Login />} />
+        <Route path="/login" element = {<Login setAuthenticate={setAuthenticate} />} />
         <Route path="/SignUp" element = {<SignUp />} />
-        <Route path="/product/:id" element = {<ProductDetail />} />
+        <Route path="/product/:id" element = {<PrivateRoute authenticate={authenticate} />} />
       </Routes>
     </div>
   );

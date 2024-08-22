@@ -12,6 +12,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 //라우터 
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 
 const Navbar = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
     ]
 
   return (
-    <div className='container'>
+    <Container>
 
         {/* login */}
         <div className='login-icon'>
@@ -44,7 +45,7 @@ const Navbar = () => {
         <div className='nav-section'>
 
             <Link to="/"> {/* 로고에 링크 추가 */}
-                <img width={100} src="https://w7.pngwing.com/pngs/279/64/png-transparent-hm-fashion-clothes-clothing-brands-and-logos-icon.png" alt="" />
+                <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
             </Link>
 
         </div>
@@ -72,7 +73,7 @@ const Navbar = () => {
 
 
         </div> {/*menu-area*/ }
-    </div>
+    </Container>
   )
 }
 
