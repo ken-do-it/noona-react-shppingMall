@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className='nav-section'>
 
             <Link to="/"> {/* 로고에 링크 추가 */}
-                <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
+                <img width={100} src="https://w7.pngwing.com/pngs/279/64/png-transparent-hm-fashion-clothes-clothing-brands-and-logos-icon.png" alt="" />
             </Link>
 
         </div>
