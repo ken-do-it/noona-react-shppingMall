@@ -22,7 +22,7 @@ import { useParams } from 'react-router-dom'
 
   useEffect(()=>{
     getProductDetail()
-  },[])
+  },)
 
 
 
@@ -38,7 +38,6 @@ import { useParams } from 'react-router-dom'
           <Col>
           <div>{product?.title}</div>
           <div>{product?.price}</div>
-
           </Col>
         </Row>
       </Container>
