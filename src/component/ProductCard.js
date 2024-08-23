@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 const ProductCard = ({ item }) => {
   const navigate = useNavigate()
   const showDetail =()=> {
-    navigate (`/Product/${item.id}`)
+    navigate (`/Products/${item.id}`)
 
   }
 

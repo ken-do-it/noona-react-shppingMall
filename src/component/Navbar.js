@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 //라우터 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 
@@ -26,6 +26,18 @@ const Navbar = () => {
         'Sale',
         '지속가능성'
     ]
+
+    // useNavigate 훅 호출
+    const navigate = useNavigate(); 
+
+    const search =(event)=>{
+        if (event.key === "Enter"){
+            // 입력한 검색어를 가져와서 
+            let keyword = event.target.value
+            //url을 바꿔준다
+            navigate(`/?q=${keyword}`)
+        }
+    }
 
   return (
     <Container>
@@ -65,7 +77,9 @@ const Navbar = () => {
             {/* search bar */}
             <InputGroup>
                 <Button variant="outline-secondary" id="button-addon1"><FontAwesomeIcon icon={faSearch} /></Button>
-                <Form.Control className='input-box' placeholder="search"/>
+
+                {/* 최신리액트에서는 onkeypress가 -> onkeydown으로 */}
+                <Form.Control className='input-box' placeholder="search" onKeyDown={(event)=>search(event)}/>
             </InputGroup>
 
             {/* <input type="text" /> */}
