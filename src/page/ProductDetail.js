@@ -52,7 +52,6 @@ import { useParams } from 'react-router-dom'
     <div >
       <Container>
         <Row>
-
         <Col className="product-image">
             <img src={product?.img} alt={product?.title} />
           </Col>

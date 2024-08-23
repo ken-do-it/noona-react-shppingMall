@@ -111,6 +111,14 @@ body{
 
 
 
+
+
+.menu-toggle {
+  font-size: 30px;
+}
+
+
+
 .product-card-container {
   display: flex;
   flex-direction: column;
@@ -178,6 +186,8 @@ body{
   animation: blink 1s step-start infinite; /* 깜박이는 효과 */
 }
 
+
+/* 깜박이는 효과2 */
 @keyframes blink {
   50% {
     opacity: 0;
@@ -206,7 +216,10 @@ body{
 
 
 
-
+.product-image img {
+  max-width: 100%; /* 이미지가 부모 요소의 너비에 맞게 조정 */
+  height: auto; /* 비율을 유지하며 높이 조정 */
+}
 
 .product-details ul {
   list-style-type: none;
@@ -257,4 +270,11 @@ body{
     display: block;
     cursor: pointer;
   }
+
+  .product-image img {
+    width: 100%; /* 작은 화면에서는 이미지가 전체 너비를 차지하도록 설정 */
+  }
+
+
 }
+
