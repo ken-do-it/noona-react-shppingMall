@@ -8,9 +8,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import {Button, Form, InputGroup, Modal} from 'react-bootstrap';
+
 
 //라우터 
 import { Link, useNavigate } from 'react-router-dom';
@@ -29,8 +28,17 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         '지속가능성'
     ]
 
+
+
     // useNavigate 훅 호출
     const navigate = useNavigate(); 
+
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    
+        // 로그아웃 모달 상태
+    const [showLogoutModal, setShowLogoutModal] = useState(false); 
 
     const search =(event)=>{
         if (event.key === "Enter"){
@@ -42,16 +50,20 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     }
 
 
-    const handleAuth = () => {
-        if (authenticate) {
-          setAuthenticate(false); // 로그아웃 처리
-        } else {
-          navigate("/login"); // 로그인 페이지로 이동
-        }
-      };
+   const handleAuth = () => {
+    if (authenticate) {
+      setShowLogoutModal(true); // 로그아웃 확인 모달 표시
+    } else {
+      navigate("/login"); // 로그인 페이지로 이동
+    }
+  };
+
+  const handleLogout = () => {
+    setAuthenticate(false);
+    setShowLogoutModal(false); // 로그아웃 후 모달 닫기
+  };
 
 
-      const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -59,57 +71,52 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
 
   return (
-    <Container>
-
-        {/* login */}
+    <div>
+     <Container className="container">
         <div className='login-icon' onClick={handleAuth}>
-            {/* <Link to = "/Login"> */}
-               
-                <FontAwesomeIcon icon={faUser} />
-                <div>{authenticate ? "Logout" : "Login"}</div>
-            
-            {/* </Link> */}
-            {/* <div>login</div> */}
+          <FontAwesomeIcon icon={faUser} />
+          <div>{authenticate ? "Logout" : "Login"}</div>
         </div>
-        
 
-        {/* logo */}
         <div className='nav-section'>
-
-            <Link to="/"> {/* 로고에 링크 추가 */}
-                <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
-            </Link>
-
+          <Link to="/">
+            <img width={100} src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="" />
+          </Link>
         </div>
-
-
 
         <div className='menu-area'>
-            
+          <div className="menu-toggle" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
+          </div>
+          <ul className={`menu-list ${menuOpen ? "open" : ""}`}>
+            {menuList.map((menu, index) => (<li key={index}>{menu}</li>))}
+          </ul>
 
-        <div className="menu-toggle" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={faBars} />
-        </div>
-        <ul className={`menu-list ${menuOpen ? "open" : ""}`}>
-          {menuList.map((menu, index) => (<li key={index}>{menu}</li>))}
-        </ul>
-
-            {/* <ul className='menu-list'>
-                {menuList.map((menu) => (<li>{menu}</li>))}
-            </ul> */}
-    
-        <div className='input-group'>
-           
+          <div className='input-group'>
             <InputGroup>
-                <Button variant="outline-secondary" id="button-addon1"><FontAwesomeIcon icon={faSearch} /></Button>
-
-                {/* 최신리액트에서는 onkeypress가 -> onkeydown으로 */}
-                <Form.Control className='input-box' placeholder="search" onKeyDown={(event)=>search(event)}/>
+              <Button variant="outline-secondary" id="button-addon1">
+                <FontAwesomeIcon icon={faSearch} />
+              </Button>
+              <Form.Control className='input-box' placeholder="search" onKeyDown={(event) => search(event)} />
             </InputGroup>
+          </div>
+        </div>
+      </Container>
 
-            </div> 
-        </div> 
-    </Container>
+      {/* 로그아웃 확인 모달 */}
+      <Modal show={showLogoutModal} onHide={() => setShowLogoutModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>로그아웃 확인</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>정말로 로그아웃하시겠습니까?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowLogoutModal(false)}>아니요</Button>
+          <Button variant="primary" onClick={handleLogout}>네</Button>
+        </Modal.Footer>
+      </Modal>
+
+
+    </div>
   )
 }
 

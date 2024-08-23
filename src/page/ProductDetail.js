@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container,Row,Col, Spinner  } from 'react-bootstrap'
+import { Container,Row,Col, Spinner, Button  } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
 
@@ -49,17 +49,26 @@ import { useParams } from 'react-router-dom'
 
 
   return (
-    <div>
+    <div >
       <Container>
         <Row>
 
-          <Col>
-          <img src={product?.img} alt="" />
+        <Col className="product-image">
+            <img src={product?.img} alt={product?.title} />
           </Col>
-
-          <Col>
-          <div>{product?.title}</div>
-          <div>{product?.price}</div>
+          <Col className="product-details">
+            <h3 className="product-title">{product?.title}</h3>
+            <h3 className="product-price">{product?.price}원</h3>
+            {product?.new && <div className="product-new">신제품</div>} {/* 신제품 여부 표시 */}
+            <section className="detail-section">
+              <h5>사이즈 - Size</h5>
+              <ul>
+                {product?.size.map((size, index) => (
+                  <li key={index}>{size}</li>
+                ))}
+              </ul>
+              <Button variant="primary" className="select-button">선택하기</Button>
+            </section>
           </Col>
         </Row>
       </Container>

@@ -18,7 +18,7 @@ const Login = ({setAuthenticate}) => {
 
 
   return (
-    <Container>
+    <Container className='login-box'>
 
       <h1 className='cen'>상품 상세페이지를 보려면 로그인하세요.</h1>
 
@@ -44,36 +44,6 @@ const Login = ({setAuthenticate}) => {
 
       </div>
     </Form>
-
-    
-
-
-
-
-  {/* <Form onSubmit={(event)=>loginUser(event)}>
-      <Form.Group className="mb-3" controlId="formBasicEmail" >
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form> */}
-
-
-
-
 
     </Container>
   )

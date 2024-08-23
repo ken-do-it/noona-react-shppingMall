@@ -1,6 +1,8 @@
 body{
-  background-color: beige;
+  background-color: #d0e8ff;
 }
+
+
 .cen {
   display: flex;
   justify-content: center;
@@ -36,9 +38,9 @@ body{
   width: 100%;
   position: relative;
   flex-wrap: wrap; 
-  margin: 30px;
-  border-bottom:1px solid #ddd ;
-  padding-bottom: 20px;
+  border-bottom: 2px solid #757575 ;
+  padding-bottom: 30px;
+  margin: 30px 0px; 
 }  
 
 
@@ -78,9 +80,36 @@ body{
 } 
 
 
-.input-box {
-  border-width: 0px 0px 1px;
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
+
+.login-form {
+  margin-top: 25px;
+}
+
+.login-text {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
+.input-box {
+  width: 50vw;
+}
+
+
 
 .product-card-container {
   display: flex;
@@ -96,7 +125,8 @@ body{
 
 .product-card-container:hover {
   transform: scale(1.10); 
-  border-color: #ff69b4; /* 마우스를 올렸을 때 테두리 색상이 핑크빛(#ff69b4)으로 변경 *//* 마우스를 올렸을 때 카드가 1.05배 커지도록 설정 */
+  border: 3px solid #ff69b4;
+  /*border-color: #ff69b4;*/ /* 마우스를 올렸을 때 테두리 색상이 핑크빛(#ff69b4)으로 변경 *//* 마우스를 올렸을 때 카드가 1.05배 커지도록 설정 */
 }
 
 .product-card-container img {
@@ -117,22 +147,92 @@ body{
 }
 
 
-.login-form {
-  margin-top: 25px;
-  
+
+
+
+.product-details, .product-image {
+  margin: 20px 0; /* 각 섹션 위아래 마진 20px */
 }
 
-.login-text {
-  font-weight: 600;
-  margin-bottom: 15px;
+
+.product-image {
+  height: 50%;
 }
 
-.login-button {
-  margin-top: 25px;
+.product-title {
+  font-size: 1.75rem; /* h3 사이즈 */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 1.75rem; /* h3 사이즈 */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-new {
+  color: #ff69b4; /* 진한 핑크색 */
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: blink 1s step-start infinite; /* 깜박이는 효과 */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.detail-section {
+  margin-top: 20px;
+}
+
+.detail-section ul {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.select-button {
+  display: block;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+
+
+
+
+
+
+
+.product-details ul {
+  list-style-type: none;
   display: flex;
-  justify-content: space-around;
+  gap: 13px;
 }
 
+.product-details ul li {
+  background-color: azure;
+  width: 36px;
+  border: 1px solid #bcbcbc;
+  height: 36px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.detail-section h5 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+.detail-section {
+  margin-bottom: 20px;
+}
 
 
 
