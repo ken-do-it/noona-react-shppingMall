@@ -1,9 +1,11 @@
 import React from 'react'
+import { useState } from 'react'
 
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 
 import Button from 'react-bootstrap/Button';
@@ -15,7 +17,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 
-const Navbar = () => {
+const Navbar = ({ authenticate, setAuthenticate }) => {
     const menuList = [
         '여성',
         'Divided',
@@ -39,17 +41,35 @@ const Navbar = () => {
         }
     }
 
+
+    const handleAuth = () => {
+        if (authenticate) {
+          setAuthenticate(false); // 로그아웃 처리
+        } else {
+          navigate("/login"); // 로그인 페이지로 이동
+        }
+      };
+
+
+      const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+
   return (
     <Container>
 
         {/* login */}
-        <div className='login-icon'>
-            <Link to = "/Login">
-                <div>
+        <div className='login-icon' onClick={handleAuth}>
+            {/* <Link to = "/Login"> */}
+               
                 <FontAwesomeIcon icon={faUser} />
-                </div>
-            </Link>
-            <div>login</div>
+                <div>{authenticate ? "Logout" : "Login"}</div>
+            
+            {/* </Link> */}
+            {/* <div>login</div> */}
         </div>
         
 
@@ -65,16 +85,21 @@ const Navbar = () => {
 
 
         <div className='menu-area'>
+            
 
-            <ul className='menu-list'>
+        <div className="menu-toggle" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+        <ul className={`menu-list ${menuOpen ? "open" : ""}`}>
+          {menuList.map((menu, index) => (<li key={index}>{menu}</li>))}
+        </ul>
+
+            {/* <ul className='menu-list'>
                 {menuList.map((menu) => (<li>{menu}</li>))}
-            </ul>
+            </ul> */}
     
         <div className='input-group'>
            
-            
-            {/* <FontAwesomeIcon icon={faSearch} /> */}
-            {/* search bar */}
             <InputGroup>
                 <Button variant="outline-secondary" id="button-addon1"><FontAwesomeIcon icon={faSearch} /></Button>
 
@@ -82,11 +107,8 @@ const Navbar = () => {
                 <Form.Control className='input-box' placeholder="search" onKeyDown={(event)=>search(event)}/>
             </InputGroup>
 
-            {/* <input type="text" /> */}
-            </div> {/*input-group*/}
-
-
-        </div> {/*menu-area*/ }
+            </div> 
+        </div> 
     </Container>
   )
 }
