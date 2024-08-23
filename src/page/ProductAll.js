@@ -3,6 +3,8 @@ import ProductCard from '../component/ProductCard';
 import { Container, Row, Col} from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const ProductAll = () => {
 
@@ -46,7 +48,10 @@ const ProductAll = () => {
             </Col>
           ))
         ) : (
-          <div>검색 결과가 없습니다</div>
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          // <div>검색 결과가 없습니다</div>
         )}
       </Row>
     </Container>
