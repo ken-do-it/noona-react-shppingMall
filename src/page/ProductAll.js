@@ -65,10 +65,7 @@ const ProductAll = () => {
             </Col>
           ))
         ) : (
-          <Spinner animation="border" variant="primary" role="status">
-            <div className="visually-hidden">Loading...</div>
-          </Spinner>
-          // <div>검색 결과가 없습니다</div>
+           <div>검색 결과가 없습니다</div>
         )}
       </Row>
     </Container>
